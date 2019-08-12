@@ -1,0 +1,29 @@
+{
+  "name": "html-boilerplate",
+  "version": "1.0.0",
+  "description": "A simple project to serve a static website",
+  "scripts": {
+    "start": "webpack-dev-server",
+    "build": "webpack"
+  },
+  "author": "Georg Steinmetz <sge@ti8m.ch>",
+  "private": true,
+  "devDependencies": {
+    "clean-webpack-plugin": "^2.0.1",
+    "copy-webpack-plugin": "^5.0.4",
+    "extract-text-webpack-plugin": "^4.0.0-beta.0",
+    "html-webpack-plugin": "^3.2.0",
+    "uglifyjs-webpack-plugin": "^2.2.0",
+    "webpack": "^4.39.1",
+    "webpack-cli": "^3.3.6",
+    "webpack-dev-server": "^3.7.2"
+  },
+  "proxy": {
+    "/api": {
+      "target": "http://localhost:8080",
+      "pathRewrite": {
+        "/api": ""
+      }
+    }
+  }
+}

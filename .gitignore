@@ -1,0 +1,16 @@
+# IDE
+.idea/
+*.iml
+.vscode/
+
+# NodeJS
+npm-debug.log
+yarn-debug.log
+yarn-error.log
+node_modules/
+
+# Build
+dist/
+
+# MISC
+.DS_Store
