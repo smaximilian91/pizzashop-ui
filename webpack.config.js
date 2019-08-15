@@ -14,11 +14,12 @@ module.exports = function (webpackEnv) {
   const extractCss = new ExtractTextPlugin('styles.css');
 
   return {
-    entry: [
-      './src/js/main.js'
-    ],
+    entry: {
+      main: './src/js/main.js',
+      main2: './src/js/main2.js'
+    },
     output: {
-      filename: isEnvProduction ? '[name].[chunkhash:8].js' : isEnvDevelopment && 'bundle.js',
+      filename: isEnvProduction ? '[name].[chunkhash:8].js' : isEnvDevelopment && '[name].bundle.js',
       path: isEnvProduction ? path.resolve(__dirname, 'dist') : undefined,
     },
     module: {
@@ -42,7 +43,8 @@ module.exports = function (webpackEnv) {
     plugins: [
       new UglifyJsPlugin({ sourceMap: true }),
       extractCss,
-      new HtmlWebpackPlugin({ template: path.join(__dirname, 'src', 'index.html') }),
+      new HtmlWebpackPlugin({ filename: 'index.html', template: path.join(__dirname, 'src', 'index.html'), chunks: ['main'] }),
+      new HtmlWebpackPlugin({ filename: 'index2.html', template: path.join(__dirname, 'src', 'index2.html'), chunks: ['main2'] }),
       new CleanWebpackPlugin({ cleanOnceBeforeBuildPatterns: ['dist'] }),
       new CopyWebpackPlugin([
         { from: 'src/assets', to: 'assets', ignore: ['js/**/*'] }
@@ -50,7 +52,7 @@ module.exports = function (webpackEnv) {
     ],
     devServer: {
       compress: true,
-      port: 3002,
+      port: 3000,
       contentBase: path.join(__dirname, 'src'),
       watchContentBase: true,
       hot: true,

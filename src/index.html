@@ -2,11 +2,37 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Demo Site</title>
-    <link rel="stylesheet" href="assets/css/main.css" />
+    <title>Pizzashop</title>
+    <link rel="stylesheet" href="assets/css/main.css"/>
 </head>
 <body>
-<h1>Demo</h1>
-<div id="root"></div>
+<div class="header">
+    <a href="http://localhost:3000/api/test/welcome">Home</a>
+    <a>|</a>
+    <a href="http://localhost:3000/api/test/pizza">Karte</a>
+    <a>|</a>
+    <a href="http://localhost:3000">Bestellung</a>
+</div>
+<div class="bestellung">
+    <div class="text"> Bestellen Sie!</div>
+    <form>
+        <div id="pizzen" class="pizzen"></div>
+        <div class="formular">
+            <label>
+                Adresse
+                <input type="text" id="address" name="address" required/>
+            </label>
+            <br>
+            <label>
+                Tel.
+                <input type="tel" id="phone" name="phone" pattern="[0-9]{3} [0-9]{3} [0-9]{2} [0-9]{2}" required/><br>
+                <span>Format: 123 456 78 90</span>
+            </label>
+            <br>
+            <input type="submit" name="submit" value="Absenden">
+        </div>
+    </form>
+</div>
 </body>
 </html>
+

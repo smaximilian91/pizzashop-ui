@@ -25,5 +25,13 @@
         "/api": ""
       }
     }
+  },
+  "dependencies": {
+    "ajax": "0.0.4",
+    "jquery": "^3.4.1",
+    "jsdom": "^15.1.1"
+  },
+  "browser": {
+    "child_process": false
   }
 }
