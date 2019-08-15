@@ -22,9 +22,9 @@ $.getJSON("http://localhost:3000/api/test/api/orders/" + id, function (json) {
         let tr = $("<tr>");
         table.append(tr);
 
-        tr.append((`<td> ${JSON.stringify(json.pizzaOrders[i].pizza.name)}</td>`));
-        tr.append((`<td> ${JSON.stringify(json.pizzaOrders[i].amount)}</td>`));
-        tr.append((`<td> ${JSON.stringify(json.pizzaOrders[i].pizza.price)} CHF</td>`));
+        tr.append((`<td> ${json.pizzaOrders[i].pizza.name}</td>`));
+        tr.append((`<td> ${json.pizzaOrders[i].amount}</td>`));
+        tr.append((`<td> ${json.pizzaOrders[i].pizza.price} CHF</td>`));
         totalAmount += json.pizzaOrders[i].amount;
     }
 
